@@ -6,8 +6,8 @@ const copyVariants = {
   visible: {
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.3,
-      ease: 'easeInOut',
+      delayChildren: 0.2,
+      ease: 'easeIn',
     },
   },
 }
@@ -26,7 +26,7 @@ const copyVariantsItems = {
 const Banner = () => {
   return (
     <section className='banner'>
-      <motion.dev
+      <motion.div
         className='banner-inner'
         variants={copyVariants}
         initial='hidden'
@@ -65,7 +65,7 @@ const Banner = () => {
         <motion.div className='image' variants={copyVariantsItems}>
           <img className='image-inner' src='/images/beauty.png' />
         </motion.div>
-      </motion.dev>
+      </motion.div>
     </section>
   )
 }

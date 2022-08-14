@@ -6,8 +6,9 @@ const background = {
     y: 250,
     x: 250,
     transition: {
+      delay: 1,
+      duration: 0.5,
       ease: 'easeIn',
-      duration: 0.6,
     },
   },
   exit: {
@@ -15,13 +16,12 @@ const background = {
     x: 800,
     transition: {
       ease: 'easeIn',
-      duration: 0.6,
+      duration: 0.3,
     },
   },
 }
 
 const logo = {
-  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     x: -600,
@@ -29,6 +29,43 @@ const logo = {
     scale: 0.8,
     transition: {
       duration: 0.5,
+      delay: 1,
+      ease: 'easeIn',
+    },
+  },
+}
+
+const circle = {
+  visible: {
+    scale: [0, 4, 8, 3, 2, 2, 1.5, 1],
+    x: [-250, -250, -250, -150, 0, 100, 50, 0],
+    y: [-10, -10, -10, -10, -50, 50, 30, 0],
+    transition: {
+      ease: 'easeInOut',
+      duration: 1,
+    },
+  },
+}
+
+const text = {
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+      ease: 'easeInOut',
+    },
+  },
+}
+
+const textChildren = {
+  hidden: {
+    x: 50,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
       ease: 'easeIn',
     },
   },
@@ -50,10 +87,20 @@ const Loader = ({ setLoading }) => {
           className='logo'
           variants={logo}
           layoutId='logo-id'
-          onAnimationComplete={() => setLoading(false)}
+          onAnimationComplete={() => setLoading(false)}s
         >
-          <span className='text'>Glow</span>
-          <span className='circle' />
+          <motion.span variants={text} className='text'>
+            {[...'Glow'].map((letter) => (
+              <motion.span
+                className='text'
+                variants={textChildren}
+                key={letter}
+              >
+                {letter}
+              </motion.span>
+            ))}
+          </motion.span>
+          <motion.span className='circle' variants={circle} />
         </motion.div>
       </motion.div>
     </motion.div>

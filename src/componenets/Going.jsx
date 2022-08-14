@@ -8,7 +8,7 @@ const Going = () => {
         <motion.div
           className='self-care'
           layoutId='going'
-          transition={{ ease: 'easeOut', duration: 0.6 }}
+          transition={{ ease: 'easeOut', duration: 0.5 }}
         ></motion.div>
       </div>
     </section>

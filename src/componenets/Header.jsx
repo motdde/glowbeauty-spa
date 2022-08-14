@@ -24,8 +24,8 @@ const Header = () => {
           layoutId='logo-id'
           transition={{ ease: 'easeOut', duration: 0.5 }}
         >
-          <span className='text'>Glow</span>
-          <span className='circle' />
+          <motion.span className='text'>Glow</motion.span>
+          <motion.span className='circle' />
         </motion.div>
         <motion.nav
           className='nav'
