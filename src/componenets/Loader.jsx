@@ -37,12 +37,13 @@ const logo = {
 
 const circle = {
   visible: {
-    scale: [0, 4, 8, 3, 2, 2, 1.5, 1],
-    x: [-250, -250, -250, -150, 0, 100, 50, 0],
+    scale: [0, 4, 10, 5, 4, 4, 1.5, 1],
+    x: [-250, -250, -250, -150, 150, 100, 50, 0],
     y: [-10, -10, -10, -10, -50, 50, 30, 0],
     transition: {
-      ease: 'easeInOut',
+      ease: 'easeOut',
       duration: 1,
+      times: [0, 0.2, 0.5, 0.6, 0.7, 0.8, , 0.9, 1],
     },
   },
 }
@@ -51,7 +52,7 @@ const text = {
   visible: {
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.3,
+      delayChildren: 0.5,
       ease: 'easeInOut',
     },
   },
@@ -87,7 +88,8 @@ const Loader = ({ setLoading }) => {
           className='logo'
           variants={logo}
           layoutId='logo-id'
-          onAnimationComplete={() => setLoading(false)}s
+          onAnimationComplete={() => setLoading(false)}
+          s
         >
           <motion.span variants={text} className='text'>
             {[...'Glow'].map((letter) => (
